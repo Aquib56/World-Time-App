@@ -13,8 +13,8 @@ class WorldTime {
 
   Future<void> getTime() async {
     try {
-      Response response = await get(
-          Uri.parse('http://worldtimeapi.org/api/timezone/Asia/Kolkata'));
+      Response response =
+          await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
       Map data = jsonDecode(response.body);
       String offset = data['utc_offset'].substring(1, 3);
       String datetime = data['datetime'];
